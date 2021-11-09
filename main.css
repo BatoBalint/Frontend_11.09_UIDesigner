@@ -10,3 +10,9 @@
 .colorPicker {
   height: 40px;
 }
+
+.exampleDiv {
+  background-color: white;
+  height: 200px;
+  overflow: hidden;
+}

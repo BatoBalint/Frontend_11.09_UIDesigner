@@ -10,24 +10,32 @@
   </head>
   <body class="bg-dark text-light">
     <div class="row pt-5">
-      <div class="col-md-6 mx-auto pt-3 bg-secondary rounded">
+      <div class="col-sm-6 mx-auto pt-3 bg-secondary rounded">
         <div class="mb-3">
           <label class="form-label">Mintaszöveg:</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" value="Árvíztűrő tükörfúrógép">
           <label id="textError" class="error hidden">A mintaszöveg nem lehet üres! </label>
         </div>
         <div class="mb-3">
           <label class="form-label">Betűméret:</label>
-          <input type="number" class="form-control">
+          <input type="number" class="form-control" value="12">
         </div>
         <div class="mb-3">
-          <label class="form-label">Szövegszín</label>
+          <label class="form-label">Szövegszín:</label>
           <input type="color" class="form-control colorPicker">
         </div>
         <div class="mb-3">
-          <label class="form-label">Háttérszín</label>
-          <input type="color" class="form-control colorPicker">
+          <label class="form-label">Háttérszín:</label>
+          <input type="color" class="form-control colorPicker" value="#ffffff">
         </div>
+        <div class="mb-3 text-center">
+          <button type="button" class="btn btn-primary">Alaphelyzet</button>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div id="exampleDiv" class="col-sm-6 mx-auto exampleDiv">
+        <p id="exampleP">asd</p>
       </div>
     </div>
   </body>
