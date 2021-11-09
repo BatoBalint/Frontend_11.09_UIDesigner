@@ -6,11 +6,11 @@ var forecolorInput;
 var bgcolorInput;
 
 var resetBtn;
-var saveBtn;
+/*var saveBtn;
 var settingsDropDown;
 
 var settingsError;
-var settingsInput;
+var settingsInput;*/
 
 var exampleDiv;
 var exampleP;
@@ -20,10 +20,15 @@ var defFontsize;
 var defColor;
 var defBgcolor;
 
-var currentSettings;
-var settingsList = [];
+/*var currentSettings;
+var settingsList = [];*/
 
 function init() {
+
+  /*let a = new MySettings(new MyStyle('asd', 12, '#121212', '#ffffff'), 'Laci');
+  settingsList.push(a);
+  window.localStorage.setItem('settingsList', settingsList);
+  console.log(window.localStorage.getItem('settingsList'));*/
 
   textError = document.getElementById('textError');
 
@@ -46,7 +51,7 @@ function init() {
   resetBtn = document.getElementById('resetBtn');
   resetBtn.addEventListener('click', resetBtnClick);
 
-  saveBtn = document.getElementById('saveBtn');
+  /*saveBtn = document.getElementById('saveBtn');
   saveBtn.addEventListener('click', saveSettings);
 
   settingInput = document.getElementById('settingInput');
@@ -54,13 +59,14 @@ function init() {
 
   settingsError = document.getElementById('settingsError');
 
-  settingsDropDown = document.getElementById('savedSettings');
+  settingsDropDown = document.getElementById('savedSettings');*/
 
   exampleDiv = document.getElementById('exampleDiv');
   exampleP = document.getElementById('exampleP');
 
   exampleRefresh();
-  settingsList = localStorage.getItem('settingsList');
+  //settingsList = localStorage.getItem('settingsList');
+  //refreshSettings();
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -70,6 +76,7 @@ function resetBtnClick() {
   fontSizeInput.value = defFontsize;
   forecolorInput.value = defColor;
   bgcolorInput.value = defBgcolor;
+  exampleRefresh();
 }
 
 function exampleRefresh() {
@@ -78,7 +85,6 @@ function exampleRefresh() {
   exampleP.style.color = forecolorInput.value;
   exampleP.style.fontSize = fontSizeInput.value + "px";
   currentSettings = new MyStyle(textInput.value, fontSizeInput.value, forecolorInput.value, bgcolorInput.value);
-  console.log(currentSettings.toString());
 }
 
 function checkText() {
@@ -114,13 +120,16 @@ function saveSettings() {
 }
 
 function refreshSettings() {
-  let i = 0;
-  forEach((sett, settingsList) => {
-    let myoption = document.createElement('option');
-    myoption.value = i + "";
-
-    i++;
-  });
+  for (let i = 1; i < settingsDropDown.length;) {
+    settingsDropDown.remove(i);
+  }
+  for (let i = 0; i < settingsList.length; i++) {
+      let myoption = document.createElement('option');
+      let text = document.createTextNode(settingsList[i].name);
+      myoption.value = i;
+      myoption.appendChild(text);
+      settingsDropDown.appendChild(myoption);
+    }
 }
 
 function loadSettings(mystyle) {
@@ -134,7 +143,7 @@ function loadSettings(mystyle) {
 class MySettings {
   constructor(mystyle, name) {
     this.mystyle = mystyle;
-    this.name - name;
+    this.name = name;
   }
 }
 
