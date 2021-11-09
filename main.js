@@ -5,6 +5,8 @@ var fontSizeInput;
 var forecolorInput;
 var bgcolorInput;
 
+var resetBtn;
+
 var defText;
 var defFontsize;
 var defColor;
@@ -24,6 +26,13 @@ function init() {
 
   bgcolorInput = document.getElementById('bgcolorInput');
   defBgcolor = bgcolorInput.value;
+
+  resetBtn = document.getElementById('resetBtn');
+  resetBtn.addEventListener('click', resetBtnClick);
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+function resetBtnClick() {
+  alert("test");
+}
