@@ -19,11 +19,11 @@ function init() {
   textError = document.getElementById('textError');
 
   textInput = document.getElementById('textInput');
-  textInput.addEventListener('input', exampleRefresh);
+  textInput.addEventListener('input', checkText);
   defText = textInput.value;
 
   fontSizeInput = document.getElementById('fontSizeInput');
-  fontSizeInput.addEventListener('input', exampleRefresh);
+  fontSizeInput.addEventListener('input', checkFontsize);
   defFontsize = fontSizeInput.value;
 
   forecolorInput = document.getElementById('forecolorInput');
@@ -57,4 +57,20 @@ function exampleRefresh() {
   exampleP.innerHTML = textInput.value;
   exampleP.style.color = forecolorInput.value;
   exampleP.style.fontSize = fontSizeInput.value + "px";
+}
+
+function checkText() {
+  let text = textInput.value;
+  if (text.trim() !== '') {
+    textError.classList.add('hidden');
+    exampleRefresh();
+  } else {
+    textError.classList.remove('hidden');
+  }
+}
+
+function checkFontsize() {
+  let size = fontSizeInput.value;
+  if (size < 0) fontSizeInput.value = '';
+  exampleRefresh();
 }
