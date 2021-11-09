@@ -1,0 +1,12 @@
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.colorPicker {
+  height: 40px;
+}
